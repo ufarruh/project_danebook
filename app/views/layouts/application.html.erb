@@ -6,9 +6,66 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
   <body>
+
+    <nav>
+        <div class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            </div>
+            <div class="row">
+              <a href="#" class="nav navbar-brand">Danebook</a>
+              <div class="navbar-form navbar-right">
+                <form class="form-group">
+                  <input type="text" class="form-control" placeholder="Email">
+                  <input type="password" class="form-control" placeholder="Password">
+                  <button type="button" class="btn btn-primary">Log In</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        </nav>
+
+
+        <main>
+          <div class="container-fluid">
+            <div class="col-md-3" id="main-text">
+              <h3>Connect with all your friends!</h3>
+              <ul>
+                <li><p>See photos and updates in your news feed<p/></li>
+                <li><p>Post your status for the world to see from you profile</p></li>
+                <li><p>Get in touch with your friends by "friending" them</p></li>
+                <li><p>Like things because you're a positive person!</p></li>
+              </ul>
+            </div>
+
+
+            <div class="col-md-8 pull-right">
+              <%= render "landing_form" %>
+            </div>
+
+          </div>
+        </main>
+
+
+
     <%= yield %>
   </body>
 </html>
