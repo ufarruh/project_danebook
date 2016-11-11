@@ -30,40 +30,30 @@
             </button>
             </div>
             <div class="row">
-              <a href="#" class="nav navbar-brand">Danebook</a>
+              <a href="/" class="nav navbar-brand">Danebook</a>
               <div class="navbar-form navbar-right">
-                <form class="form-group">
-                  <input type="text" class="form-control" placeholder="Email">
-                  <input type="password" class="form-control" placeholder="Password">
-                  <button type="button" class="btn btn-primary">Log In</button>
-                </form>
+
+                <% if signed_in_user? %>
+                  Welcome, <%= link_to current_user.email, current_user %>
+                  <%= link_to "Logout", logout_path, method: :delete %>
+                <% else %>
+                  <%= render "shared/navbar_form" %>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
         </nav>
 
-
         <main>
           <div class="container-fluid">
-            <div class="col-md-3" id="main-text">
-              <h3>Connect with all your friends!</h3>
-              <ul>
-                <li><p>See photos and updates in your news feed<p/></li>
-                <li><p>Post your status for the world to see from you profile</p></li>
-                <li><p>Get in touch with your friends by "friending" them</p></li>
-                <li><p>Like things because you're a positive person!</p></li>
-              </ul>
-            </div>
-
-
-
 
           </div>
         </main>
 
 
-
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
