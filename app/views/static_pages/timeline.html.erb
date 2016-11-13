@@ -69,13 +69,11 @@
       </div>
     <% end %>
 
-
-
-
       <% @posts.each do |post| %>
       <div class="panel panel-default">
         <div class="panel-body">
-          <h5><a>Harry Potter    </a>Posted on Thursday 6/1/2014</h5>
+          <%= link_to "#{post.user.first_name} #{post.user.last_name}" %><br />
+          Posted on <%= post.created_at.strftime("%B %d, %Y") %>
           <hr>
             <p><%= post.body %></p>
         </div>
