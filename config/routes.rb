@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "users#new"
-
+  root to: "static_pages#home"
+  get "timeline" => "static_pages#timeline"
   resources :users
-  resource :session, only: [:create, :destroy]
-
-  get "login" => "sessions#new"
-  delete "logout" => "sessions#destroy"
-
+  resources :posts
 end

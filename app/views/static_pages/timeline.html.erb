@@ -1,0 +1,95 @@
+
+<div class="container" id="main">
+    <div class="panel panel-default" id="background">
+        <div class="panel-body">
+          <div class="col-md-2">
+          <div class="panel panel-default" id="avatar">
+            <img src="harry.png" alt="Harry Potter" />
+          </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div id="about-buttons">
+          <a href="#" class="btn btn-default btn-lg">Timeline</a>
+          <a href="#" class="btn btn-info btn-lg">About</a>
+          <a href="#" class="btn btn-default btn-lg">Photos(123)</a>
+          <a href="#" class="btn btn-default btn-lg">Friends(223)</a>
+          <h5 class="pull-right"><a href="#">Edit Profile</a></h5>
+        </div>
+      </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        About
+      </div>
+      <div class="panel-body">
+        <h5>Born: July, 21st, 1980</h5>
+        <h5>Went to school at: Hogwarts</h5>
+        <h5>Hometown: Godrick's Hollow, England</h5>
+        <h5>Currently Lives: Godrick's Hollow</h5>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        Photos
+      </div>
+      <div class="panel-body text-center">
+        <a href="#">See More Photos(123)</a>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        Friends(542)
+      </div>
+      <div class="panel-body text-center">
+        <a href="#">See More Friends</a>
+      </div>
+    </div>
+
+    </div>
+
+    <!--Right column start here -->
+    <%= simple_form_for @post do |f| %>
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          Post
+        </div>
+        <div class="panel-body">
+          <%= f.input :body, as: :text %>
+        </div>
+        <div class="panel-footer">
+          <%= f.button :submit, "Post", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+
+
+
+
+      <% @posts.each do |post| %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h5><a>Harry Potter    </a>Posted on Thursday 6/1/2014</h5>
+          <hr>
+            <p><%= post.body %></p>
+        </div>
+        <div class="panel-footer">
+          <a href="#">Like</a>
+          <a href="#">Comment</a>
+          <div class="pull-right">
+            <%= link_to "Delete", post_path(post), data: { confirm:  "Are you sure?" } , method: :delete %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+
+  </div>
