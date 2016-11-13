@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root to: "static_pages#home"
   get "timeline" => "static_pages#timeline"
   resources :users
-  resources :posts
+  resources :posts, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy]
 end

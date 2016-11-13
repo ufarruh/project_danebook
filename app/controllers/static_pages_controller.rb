@@ -9,5 +9,7 @@ class StaticPagesController < ApplicationController
   def timeline
     @post = Post.new
     @posts = current_user.posts.order('id DESC')
+    @comment = Comment.new
+    @comments = current_user.comments.order('id DESC')
   end
 end
