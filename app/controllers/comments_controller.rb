@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(white_list_params)
-
     if @comment.save
       redirect_to timeline_url
     end

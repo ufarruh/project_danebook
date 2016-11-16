@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :users
   resources :posts, only: [:create, :destroy]
   resources :comments, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy], default: { commentable: "Post" }
 end
