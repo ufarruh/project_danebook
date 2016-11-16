@@ -1,5 +1,4 @@
 
-<div class="container" id="main">
     <div class="panel panel-default" id="background">
         <div class="panel-body">
           <div class="col-md-2">
@@ -82,31 +81,33 @@
         <div class="panel-default">
         <div class="panel-body">
           <% post.comments.each do |comment| %>
-          <p><%= comment.user.first_name %> commented <%= time_ago_in_words(comment.created_at)%> ago</p>
+            <p><%= comment.user.first_name %> commented <%= time_ago_in_words(comment.created_at)%> ago</p>
             <p> <%= comment.body %></p>
           <% end %>
         </div>
         </div>
 
         <div class="panel-footer">
-          <a href="#">Like </a>
+          <% post.likes.each do |like| %>
+            <% if like.user_id == nil %>
+              <%= link_to "Like", "#" %>
+            <% else %>
+              <%= link_to "Unlike", "#" %>
+            <% end %>
+          <% end %>
 
-          <a href="#demo" data-toggle="collapse">Comment</a>
-          <div id="demo" class="collapse">
+          <%= link_to "Delete Post", post_path(post), data: { confirm:  "Are you sure?" } , method: :delete, class: "pull-right" %>
+
             <%= simple_form_for @comment do |f| %>
+              <%= f.hidden_field :commentable_type, value: "Post" %>
+              <%= f.hidden_field :commentable_id, value: post.id %>
               <%= f.input :body, as: :text %>
               <%= f.button :submit, "Comment", class: "btn btn-primary" %>
             <% end %>
-          </div>
-
           <div class="pull-right">
-            <%= link_to "Delete Post", post_path(post), data: { confirm:  "Are you sure?" } , method: :delete %>
           </div>
         </div>
       </div>
-      <% end %>
-
+     <% end %>
     </div>
-  </div>
-
   </div>

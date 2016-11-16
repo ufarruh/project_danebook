@@ -12,4 +12,5 @@ class StaticPagesController < ApplicationController
     @comment = Comment.new
     @comments = current_user.comments.order('id DESC')
   end
+  
 end
